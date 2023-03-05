@@ -9,3 +9,11 @@
  * HINT:
  * This can be solved using either a LEFT JOIN or the NOT IN operator.
  */
+
+select last_name, first_name
+from actor
+where last_name || ' ' || first_name not in (
+    select last_name || ' ' || first_name
+    from customer
+)
+order by last_name,first_name asc;
